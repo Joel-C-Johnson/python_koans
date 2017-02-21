@@ -17,8 +17,17 @@
 # and
 #   about_triangle_project_2.py
 #
+
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
+
+
+    if ((a<=0) and (b<=0) and (c<=0)):
+        raise TriangleError
+
+    if a+b<=c or a+c<=b or b+c<=a:
+        raise TriangleError
+
     if (a==b==c):
         return 'equilateral'
 

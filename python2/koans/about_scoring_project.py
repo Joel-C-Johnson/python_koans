@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -32,11 +34,44 @@ from runner.koan import *
 # More scoring examples are given in the tests below:
 #
 # Your goal is to write the score method.
-
 def score(dice):
-    # You need to write this method
-    pass
 
+    if dice == []:
+        return 0
+
+    one = 0
+    two = 0
+    three = 0
+    four = 0
+    five = 0
+    six = 0
+
+    if dice.count(1) >= 3:
+        one = 1000 + (dice.count(1) - 3) * 100
+    else:
+        one = dice.count(1) * 100
+
+    if dice.count(5) >= 3:
+        five = 500 + (dice.count(5) - 3) * 50
+    else:
+        five = dice.count(5) * 50
+
+    if dice.count(2) >= 3:
+        two = 200
+    elif dice.count(3) >= 3:
+        three = 300
+    elif dice.count(4) >= 3:
+        four = 400
+    elif dice.count(6) >= 3:
+        six = 600
+
+    return one + two + three + four + five + six
+
+
+
+
+
+    # You need to write this method
 
 class AboutScoringProject(Koan):
     def test_score_of_an_empty_list_is_zero(self):
